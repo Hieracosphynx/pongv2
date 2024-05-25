@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://d4bqa8vmbuodq"]
+[gd_scene load_steps=4 format=3 uid="uid://d4bqa8vmbuodq"]
 
 [ext_resource type="PackedScene" uid="uid://upjsjju4a8v3" path="res://scenes/Player.tscn" id="1_70hb5"]
 [ext_resource type="PackedScene" uid="uid://cdhsxfjf0hws2" path="res://scenes/Court.tscn" id="2_hasa3"]
+[ext_resource type="PackedScene" uid="uid://bre25nt3nextk" path="res://scenes/Ball.tscn" id="3_7a05y"]
 
 [node name="Game" type="Node"]
 
@@ -9,6 +10,11 @@
 
 [node name="Player" parent="." instance=ExtResource("1_70hb5")]
 position = Vector2(31, 492)
+collision_layer = 3
+collision_mask = 3
 slide_on_ceiling = false
 platform_on_leave = 2
 platform_wall_layers = 1
+
+[node name="Ball" parent="." instance=ExtResource("3_7a05y")]
+position = Vector2(923, 513)

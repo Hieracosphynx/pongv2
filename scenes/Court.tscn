@@ -3,7 +3,6 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sg4tc"]
 
 [node name="Court" type="Node2D"]
-metadata/_edit_group_ = true
 
 [node name="TopLeftCornerWall" type="StaticBody2D" parent="."]
 disable_mode = 2
