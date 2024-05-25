@@ -1,23 +1,49 @@
-[gd_scene load_steps=3 format=3 uid="uid://upjsjju4a8v3"]
+[gd_scene load_steps=5 format=3 uid="uid://upjsjju4a8v3"]
 
-[ext_resource type="Script" path="res://scripts/Player.cs" id="1_utsmv"]
+[ext_resource type="Script" path="res://scripts/Player/VerticalPaddle.cs" id="1_qpobi"]
+[ext_resource type="Script" path="res://scripts/Player/HorizontalPaddle.cs" id="2_me11j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_48106"]
 size = Vector2(15.3947, 9.70947)
 
-[node name="Player" type="CharacterBody2D"]
-script = ExtResource("1_utsmv")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qlrtk"]
+size = Vector2(256.191, 1.47141)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Player" type="Node2D"]
+
+[node name="VerticalPaddle" type="CharacterBody2D" parent="."]
+position = Vector2(29, 566)
+script = ExtResource("1_qpobi")
+
+[node name="Polygon2D" type="Polygon2D" parent="VerticalPaddle"]
+position = Vector2(0, -100)
+polygon = PackedVector2Array(0, 0, 0, 100, 15, 100, 15, 0)
+
+[node name="ColorRect" type="ColorRect" parent="VerticalPaddle/Polygon2D"]
+offset_right = 15.0
+offset_bottom = 100.0
+color = Color(0.0509804, 0, 0.556863, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalPaddle"]
 position = Vector2(7.5, -50.129)
 scale = Vector2(0.974359, -10.3258)
 shape = SubResource("RectangleShape2D_48106")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2(0, -100)
-polygon = PackedVector2Array(0, 0, 0, 100, 15, 100, 15, 0)
+[node name="HorizontalPaddle" type="CharacterBody2D" parent="."]
+position = Vector2(803, 17)
+script = ExtResource("2_me11j")
+metadata/_edit_group_ = true
 
-[node name="ColorRect" type="ColorRect" parent="Polygon2D"]
-offset_right = 15.0
-offset_bottom = 100.0
+[node name="Polygon2D" type="Polygon2D" parent="HorizontalPaddle"]
+polygon = PackedVector2Array(0, 0, 250, 0, 250, 15, 0, 15)
+
+[node name="ColorRect" type="ColorRect" parent="HorizontalPaddle/Polygon2D"]
+offset_right = 250.0
+offset_bottom = 15.0
 color = Color(0.0509804, 0, 0.556863, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HorizontalPaddle"]
+position = Vector2(125.189, 7.59675)
+scale = Vector2(0.974359, -10.3258)
+shape = SubResource("RectangleShape2D_qlrtk")

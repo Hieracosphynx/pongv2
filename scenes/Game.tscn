@@ -9,12 +9,6 @@
 [node name="Court" parent="." instance=ExtResource("2_hasa3")]
 
 [node name="Player" parent="." instance=ExtResource("1_70hb5")]
-position = Vector2(31, 492)
-collision_layer = 3
-collision_mask = 3
-slide_on_ceiling = false
-platform_on_leave = 2
-platform_wall_layers = 1
 
 [node name="Ball" parent="." instance=ExtResource("3_7a05y")]
 position = Vector2(923, 513)
