@@ -1,3 +1,54 @@
-[gd_scene format=3 uid="uid://cdhsxfjf0hws2"]
+[gd_scene load_steps=2 format=3 uid="uid://cdhsxfjf0hws2"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sg4tc"]
 
 [node name="Court" type="Node2D"]
+metadata/_edit_group_ = true
+
+[node name="TopLeftCornerWall" type="StaticBody2D" parent="."]
+disable_mode = 2
+physics_material_override = SubResource("PhysicsMaterial_sg4tc")
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TopLeftCornerWall"]
+polygon = PackedVector2Array(0, 0, 175, 0, 175, 90, 87.5, 90, 87.5, 175, 0, 175)
+
+[node name="Polygon2D" type="Polygon2D" parent="TopLeftCornerWall"]
+color = Color(0.627451, 0.188235, 0.313726, 1)
+polygon = PackedVector2Array(0, 0, 175, 0, 175, 90, 87.5, 90, 87.5, 175, 0, 175)
+
+[node name="TopRightCornerWall" type="StaticBody2D" parent="."]
+position = Vector2(1920, 0)
+rotation = 1.5708
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TopRightCornerWall"]
+polygon = PackedVector2Array(0, 0, 175, 0, 175, 90, 87.5, 90, 87.5, 175, 0, 175)
+
+[node name="Polygon2D" type="Polygon2D" parent="TopRightCornerWall"]
+color = Color(0.627451, 0.188235, 0.313726, 1)
+polygon = PackedVector2Array(0, 0, 175, 0, 175, 90, 87.5, 90, 87.5, 175, 0, 175)
+
+[node name="BottomRightCornerWall" type="StaticBody2D" parent="."]
+position = Vector2(1919, 1079)
+rotation = 3.14159
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BottomRightCornerWall"]
+polygon = PackedVector2Array(0, 0, 175, 0, 175, 90, 87.5, 90, 87.5, 175, 0, 175)
+
+[node name="Polygon2D" type="Polygon2D" parent="BottomRightCornerWall"]
+color = Color(0.627451, 0.188235, 0.313726, 1)
+polygon = PackedVector2Array(0, 0, 175, 0, 175, 90, 87.5, 90, 87.5, 175, 0, 175)
+
+[node name="BottomLeftCornerWall" type="StaticBody2D" parent="."]
+position = Vector2(0, 1080)
+rotation = 4.71239
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BottomLeftCornerWall"]
+polygon = PackedVector2Array(0, 0, 175, 0, 175, 90, 87.5, 90, 87.5, 175, 0, 175)
+
+[node name="Polygon2D" type="Polygon2D" parent="BottomLeftCornerWall"]
+color = Color(0.627451, 0.188235, 0.313726, 1)
+polygon = PackedVector2Array(0, 0, 175, 0, 175, 90, 87.5, 90, 87.5, 175, 0, 175)

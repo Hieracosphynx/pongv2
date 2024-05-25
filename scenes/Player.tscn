@@ -8,6 +8,11 @@ size = Vector2(15.3947, 9.70947)
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_utsmv")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7.5, -50.129)
+scale = Vector2(0.974359, -10.3258)
+shape = SubResource("RectangleShape2D_48106")
+
 [node name="Polygon2D" type="Polygon2D" parent="."]
 position = Vector2(0, -100)
 polygon = PackedVector2Array(0, 0, 0, 100, 15, 100, 15, 0)
@@ -16,8 +21,3 @@ polygon = PackedVector2Array(0, 0, 0, 100, 15, 100, 15, 0)
 offset_right = 15.0
 offset_bottom = 100.0
 color = Color(0.0509804, 0, 0.556863, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(7.5, -50.129)
-scale = Vector2(0.974359, -10.3258)
-shape = SubResource("RectangleShape2D_48106")

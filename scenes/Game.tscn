@@ -1,8 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://d4bqa8vmbuodq"]
+[gd_scene load_steps=3 format=3 uid="uid://d4bqa8vmbuodq"]
 
 [ext_resource type="PackedScene" uid="uid://upjsjju4a8v3" path="res://scenes/Player.tscn" id="1_70hb5"]
+[ext_resource type="PackedScene" uid="uid://cdhsxfjf0hws2" path="res://scenes/Court.tscn" id="2_hasa3"]
 
 [node name="Game" type="Node"]
 
+[node name="Court" parent="." instance=ExtResource("2_hasa3")]
+
 [node name="Player" parent="." instance=ExtResource("1_70hb5")]
-position = Vector2(31, 224)
+position = Vector2(31, 492)
+slide_on_ceiling = false
+platform_on_leave = 2
+platform_wall_layers = 1
