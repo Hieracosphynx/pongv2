@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bre25nt3nextk"]
 
 [ext_resource type="Script" path="res://scripts/Ball/Ball.cs" id="1_td1kn"]
-[ext_resource type="Script" path="res://scripts/Ball/CircleShape.cs" id="2_uklvt"]
+[ext_resource type="Script" path="res://scripts/Ball/BallShape.cs" id="2_0m4tf"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ce0f1"]
 friction = 0.0
@@ -19,7 +19,7 @@ script = ExtResource("1_td1kn")
 metadata/_edit_group_ = true
 
 [node name="CircleShape" type="Node2D" parent="."]
-script = ExtResource("2_uklvt")
+script = ExtResource("2_0m4tf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_4nams")

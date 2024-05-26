@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw80stm2km62o"]
+
+[ext_resource type="Script" path="res://scripts/PackedScene/CircleObstacleShape.cs" id="1_a0pr6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_105yn"]
+radius = 50.0
+
+[node name="SpawnableObstacle" type="Node2D"]
+
+[node name="CircleObstacle" type="StaticBody2D" parent="."]
+
+[node name="CircleObstacleShape" type="Node2D" parent="CircleObstacle"]
+script = ExtResource("1_a0pr6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CircleObstacle"]
+shape = SubResource("CircleShape2D_105yn")
