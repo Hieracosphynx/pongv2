@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://d4bqa8vmbuodq"]
+[gd_scene load_steps=5 format=3 uid="uid://d4bqa8vmbuodq"]
 
 [ext_resource type="PackedScene" uid="uid://upjsjju4a8v3" path="res://scenes/Player.tscn" id="1_70hb5"]
 [ext_resource type="PackedScene" uid="uid://cdhsxfjf0hws2" path="res://scenes/Court.tscn" id="2_hasa3"]
 [ext_resource type="PackedScene" uid="uid://bre25nt3nextk" path="res://scenes/Ball.tscn" id="3_7a05y"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0bb16"]
+distance = -1056.0
 
 [node name="Game" type="Node"]
 
@@ -12,3 +15,15 @@
 
 [node name="Ball" parent="." instance=ExtResource("3_7a05y")]
 position = Vector2(923, 513)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_0bb16")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(831, 6)
+rotation = -1.57551
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("WorldBoundaryShape2D_0bb16")

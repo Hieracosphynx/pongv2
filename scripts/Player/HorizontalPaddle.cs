@@ -3,7 +3,7 @@ using System;
 
 public partial class HorizontalPaddle : CharacterBody2D
 {
-    public float Speed = 500.00f;
+    public float Speed = 700.00f;
     public override void _PhysicsProcess(double delta)
     {
         Vector2 velocity = Vector2.Zero;

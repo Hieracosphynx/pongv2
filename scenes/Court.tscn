@@ -4,7 +4,7 @@
 
 [node name="Court" type="Node2D"]
 
-[node name="TopLeftCornerWall" type="StaticBody2D" parent="."]
+[node name="TopLeftCornerWall" type="StaticBody2D" parent="." groups=["CornerWalls"]]
 disable_mode = 2
 physics_material_override = SubResource("PhysicsMaterial_sg4tc")
 metadata/_edit_group_ = true
@@ -16,7 +16,7 @@ polygon = PackedVector2Array(0, 0, 175, 0, 175, 90, 87.5, 90, 87.5, 175, 0, 175)
 color = Color(0.627451, 0.188235, 0.313726, 1)
 polygon = PackedVector2Array(0, 0, 175, 0, 175, 90, 87.5, 90, 87.5, 175, 0, 175)
 
-[node name="TopRightCornerWall" type="StaticBody2D" parent="."]
+[node name="TopRightCornerWall" type="StaticBody2D" parent="." groups=["CornerWalls"]]
 position = Vector2(1920, 0)
 rotation = 1.5708
 metadata/_edit_group_ = true
@@ -28,7 +28,7 @@ polygon = PackedVector2Array(0, 0, 175, 0, 175, 90, 87.5, 90, 87.5, 175, 0, 175)
 color = Color(0.627451, 0.188235, 0.313726, 1)
 polygon = PackedVector2Array(0, 0, 175, 0, 175, 90, 87.5, 90, 87.5, 175, 0, 175)
 
-[node name="BottomRightCornerWall" type="StaticBody2D" parent="."]
+[node name="BottomRightCornerWall" type="StaticBody2D" parent="." groups=["CornerWalls"]]
 position = Vector2(1919, 1079)
 rotation = 3.14159
 metadata/_edit_group_ = true
@@ -40,9 +40,9 @@ polygon = PackedVector2Array(0, 0, 175, 0, 175, 90, 87.5, 90, 87.5, 175, 0, 175)
 color = Color(0.627451, 0.188235, 0.313726, 1)
 polygon = PackedVector2Array(0, 0, 175, 0, 175, 90, 87.5, 90, 87.5, 175, 0, 175)
 
-[node name="BottomLeftCornerWall" type="StaticBody2D" parent="."]
+[node name="BottomLeftCornerWall" type="StaticBody2D" parent="." groups=["CornerWalls"]]
 position = Vector2(0, 1080)
-rotation = 4.71239
+rotation = -1.5708
 metadata/_edit_group_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BottomLeftCornerWall"]
@@ -51,3 +51,45 @@ polygon = PackedVector2Array(0, 0, 175, 0, 175, 90, 87.5, 90, 87.5, 175, 0, 175)
 [node name="Polygon2D" type="Polygon2D" parent="BottomLeftCornerWall"]
 color = Color(0.627451, 0.188235, 0.313726, 1)
 polygon = PackedVector2Array(0, 0, 175, 0, 175, 90, 87.5, 90, 87.5, 175, 0, 175)
+
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="TopLeftCenterTriangle" type="StaticBody2D" parent="Obstacles"]
+position = Vector2(600, 184)
+rotation = 1.5708
+
+[node name="Polygon2D" type="Polygon2D" parent="Obstacles/TopLeftCenterTriangle"]
+polygon = PackedVector2Array(0, 0, 50, -50, 100, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstacles/TopLeftCenterTriangle"]
+polygon = PackedVector2Array(0, 0, 50, -50, 100, 0)
+
+[node name="BottomLeftCenterTriangle" type="StaticBody2D" parent="Obstacles"]
+position = Vector2(600, 850)
+rotation = 1.5708
+
+[node name="Polygon2D" type="Polygon2D" parent="Obstacles/BottomLeftCenterTriangle"]
+polygon = PackedVector2Array(0, 0, 50, -50, 100, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstacles/BottomLeftCenterTriangle"]
+polygon = PackedVector2Array(0, 0, 50, -50, 100, 0)
+
+[node name="TopRightCenterTriangle" type="StaticBody2D" parent="Obstacles"]
+position = Vector2(1320, 280)
+rotation = 4.71239
+
+[node name="Polygon2D" type="Polygon2D" parent="Obstacles/TopRightCenterTriangle"]
+polygon = PackedVector2Array(0, 0, 50, -50, 100, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstacles/TopRightCenterTriangle"]
+polygon = PackedVector2Array(0, 0, 50, -50, 100, 0)
+
+[node name="BottomRghtCenterTriangle" type="StaticBody2D" parent="Obstacles"]
+position = Vector2(1320, 952)
+rotation = 4.71239
+
+[node name="Polygon2D" type="Polygon2D" parent="Obstacles/BottomRghtCenterTriangle"]
+polygon = PackedVector2Array(0, 0, 50, -50, 100, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstacles/BottomRghtCenterTriangle"]
+polygon = PackedVector2Array(0, 0, 50, -50, 100, 0)
