@@ -13,6 +13,9 @@ size = Vector2(256.191, 1.47141)
 
 [node name="VerticalPaddle" type="CharacterBody2D" parent="."]
 position = Vector2(29, 566)
+collision_mask = 2
+motion_mode = 1
+platform_on_leave = 2
 script = ExtResource("1_qpobi")
 
 [node name="Polygon2D" type="Polygon2D" parent="VerticalPaddle"]
@@ -31,6 +34,8 @@ shape = SubResource("RectangleShape2D_48106")
 
 [node name="HorizontalPaddle" type="CharacterBody2D" parent="."]
 position = Vector2(803, 17)
+collision_layer = 3
+collision_mask = 2
 script = ExtResource("2_me11j")
 metadata/_edit_group_ = true
 

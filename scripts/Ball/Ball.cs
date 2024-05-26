@@ -3,7 +3,7 @@ using System;
 
 public partial class Ball : RigidBody2D
 {
-    public float Speed = -550.0f;
+    public float Speed = -850.0f;
     public override void _Ready()
     {
         LinearVelocity += new Vector2(GetRandomVelocity(), 0);

@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://scripts/Ball/CircleShape.cs" id="2_uklvt"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ce0f1"]
+friction = 0.0
 bounce = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4nams"]
