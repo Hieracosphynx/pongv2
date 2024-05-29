@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdhsxfjf0hws2"]
+[gd_scene load_steps=4 format=3 uid="uid://cdhsxfjf0hws2"]
 
 [ext_resource type="Script" path="res://scripts/Court.cs" id="1_epw77"]
+[ext_resource type="Script" path="res://scripts/CenterObstacles.cs" id="2_oca4f"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sg4tc"]
 
@@ -63,45 +64,49 @@ polygon = PackedVector2Array(0, 0, 175, 0, 175, 90, 87.5, 90, 87.5, 175, 0, 175)
 color = Color(0.627451, 0.188235, 0.313726, 1)
 polygon = PackedVector2Array(0, 0, 175, 0, 175, 90, 87.5, 90, 87.5, 175, 0, 175)
 
-[node name="Obstacles" type="Node2D" parent="."]
+[node name="CenterObstacles" type="Node2D" parent="."]
 position = Vector2(960, 540)
+script = ExtResource("2_oca4f")
 
-[node name="TopLeftCenterTriangle" type="StaticBody2D" parent="Obstacles" groups=["CenterObstacles"]]
+[node name="Node2D" type="Node2D" parent="CenterObstacles"]
+position = Vector2(-344, -314)
+
+[node name="TopLeftCenterTriangle" type="StaticBody2D" parent="CenterObstacles" groups=["CenterObstacles"]]
 position = Vector2(-360, -364)
 rotation = 1.5708
 
-[node name="Polygon2D" type="Polygon2D" parent="Obstacles/TopLeftCenterTriangle"]
+[node name="Polygon2D" type="Polygon2D" parent="CenterObstacles/TopLeftCenterTriangle"]
 polygon = PackedVector2Array(0, 0, 50, -50, 100, 0)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstacles/TopLeftCenterTriangle"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CenterObstacles/TopLeftCenterTriangle"]
 polygon = PackedVector2Array(0, 0, 50, -50, 100, 0)
 
-[node name="BottomLeftCenterTriangle" type="StaticBody2D" parent="Obstacles" groups=["CenterObstacles"]]
+[node name="BottomLeftCenterTriangle" type="StaticBody2D" parent="CenterObstacles" groups=["CenterObstacles"]]
 position = Vector2(-360, 262)
 rotation = 1.5708
 
-[node name="Polygon2D" type="Polygon2D" parent="Obstacles/BottomLeftCenterTriangle"]
+[node name="Polygon2D" type="Polygon2D" parent="CenterObstacles/BottomLeftCenterTriangle"]
 polygon = PackedVector2Array(0, 0, 50, -50, 100, 0)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstacles/BottomLeftCenterTriangle"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CenterObstacles/BottomLeftCenterTriangle"]
 polygon = PackedVector2Array(0, 0, 50, -50, 100, 0)
 
-[node name="TopRightCenterTriangle" type="StaticBody2D" parent="Obstacles" groups=["CenterObstacles"]]
+[node name="TopRightCenterTriangle" type="StaticBody2D" parent="CenterObstacles" groups=["CenterObstacles"]]
 position = Vector2(360, -263)
 rotation = -1.5708
 
-[node name="Polygon2D" type="Polygon2D" parent="Obstacles/TopRightCenterTriangle"]
+[node name="Polygon2D" type="Polygon2D" parent="CenterObstacles/TopRightCenterTriangle"]
 polygon = PackedVector2Array(0, 0, 50, -50, 100, 0)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstacles/TopRightCenterTriangle"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CenterObstacles/TopRightCenterTriangle"]
 polygon = PackedVector2Array(0, 0, 50, -50, 100, 0)
 
-[node name="BottomRghtCenterTriangle" type="StaticBody2D" parent="Obstacles" groups=["CenterObstacles"]]
+[node name="BottomRghtCenterTriangle" type="StaticBody2D" parent="CenterObstacles" groups=["CenterObstacles"]]
 position = Vector2(360, 362)
 rotation = -1.5708
 
-[node name="Polygon2D" type="Polygon2D" parent="Obstacles/BottomRghtCenterTriangle"]
+[node name="Polygon2D" type="Polygon2D" parent="CenterObstacles/BottomRghtCenterTriangle"]
 polygon = PackedVector2Array(0, 0, 50, -50, 100, 0)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstacles/BottomRghtCenterTriangle"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CenterObstacles/BottomRghtCenterTriangle"]
 polygon = PackedVector2Array(0, 0, 50, -50, 100, 0)

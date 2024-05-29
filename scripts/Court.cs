@@ -10,7 +10,7 @@ public partial class Court : Node2D
 
     public override void _Ready()
     {
-        CenterObstacles = GetNode<Node2D>("Obstacles");
+        CenterObstacles = GetNode<Node2D>("CenterObstacles");
         HandleCenterObstaclesTween();
     }
 
