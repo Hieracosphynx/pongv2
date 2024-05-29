@@ -4,12 +4,10 @@
 [ext_resource type="Script" path="res://scripts/Game.cs" id="1_rjfbw"]
 [ext_resource type="PackedScene" uid="uid://cdhsxfjf0hws2" path="res://scenes/Court.tscn" id="2_hasa3"]
 [ext_resource type="PackedScene" uid="uid://bre25nt3nextk" path="res://scenes/Ball.tscn" id="3_7a05y"]
+[ext_resource type="PackedScene" uid="uid://dw80stm2km62o" path="res://scenes/PackedScene/SpawnableObstacles.tscn" id="5_y740b"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0bb16"]
 distance = -1056.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dy7o5"]
-size = Vector2(1195, 515)
 
 [node name="Game" type="Node"]
 script = ExtResource("1_rjfbw")
@@ -33,8 +31,5 @@ rotation = -1.57551
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 shape = SubResource("WorldBoundaryShape2D_0bb16")
 
-[node name="SpawnableObstacleArea" type="Area2D" parent="."]
-position = Vector2(960, 540)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnableObstacleArea"]
-shape = SubResource("RectangleShape2D_dy7o5")
+[node name="SpawnableObstacle" parent="." instance=ExtResource("5_y740b")]
+position = Vector2(799, 557)

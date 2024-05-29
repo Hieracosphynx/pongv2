@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cdhsxfjf0hws2"]
+[gd_scene load_steps=3 format=3 uid="uid://cdhsxfjf0hws2"]
+
+[ext_resource type="Script" path="res://scripts/Court.cs" id="1_epw77"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sg4tc"]
 
 [node name="Court" type="Node2D"]
+script = ExtResource("1_epw77")
 
 [node name="TopLeftCornerWall" type="StaticBody2D" parent="." groups=["CornerWalls"]]
 disable_mode = 2
@@ -61,10 +64,10 @@ color = Color(0.627451, 0.188235, 0.313726, 1)
 polygon = PackedVector2Array(0, 0, 175, 0, 175, 90, 87.5, 90, 87.5, 175, 0, 175)
 
 [node name="Obstacles" type="Node2D" parent="."]
-position = Vector2(0, -8)
+position = Vector2(960, 540)
 
 [node name="TopLeftCenterTriangle" type="StaticBody2D" parent="Obstacles" groups=["CenterObstacles"]]
-position = Vector2(600, 184)
+position = Vector2(-360, -364)
 rotation = 1.5708
 
 [node name="Polygon2D" type="Polygon2D" parent="Obstacles/TopLeftCenterTriangle"]
@@ -74,7 +77,7 @@ polygon = PackedVector2Array(0, 0, 50, -50, 100, 0)
 polygon = PackedVector2Array(0, 0, 50, -50, 100, 0)
 
 [node name="BottomLeftCenterTriangle" type="StaticBody2D" parent="Obstacles" groups=["CenterObstacles"]]
-position = Vector2(600, 810)
+position = Vector2(-360, 262)
 rotation = 1.5708
 
 [node name="Polygon2D" type="Polygon2D" parent="Obstacles/BottomLeftCenterTriangle"]
@@ -84,8 +87,8 @@ polygon = PackedVector2Array(0, 0, 50, -50, 100, 0)
 polygon = PackedVector2Array(0, 0, 50, -50, 100, 0)
 
 [node name="TopRightCenterTriangle" type="StaticBody2D" parent="Obstacles" groups=["CenterObstacles"]]
-position = Vector2(1320, 280)
-rotation = 4.71239
+position = Vector2(360, -263)
+rotation = -1.5708
 
 [node name="Polygon2D" type="Polygon2D" parent="Obstacles/TopRightCenterTriangle"]
 polygon = PackedVector2Array(0, 0, 50, -50, 100, 0)
@@ -94,8 +97,8 @@ polygon = PackedVector2Array(0, 0, 50, -50, 100, 0)
 polygon = PackedVector2Array(0, 0, 50, -50, 100, 0)
 
 [node name="BottomRghtCenterTriangle" type="StaticBody2D" parent="Obstacles" groups=["CenterObstacles"]]
-position = Vector2(1320, 910)
-rotation = 4.71239
+position = Vector2(360, 362)
+rotation = -1.5708
 
 [node name="Polygon2D" type="Polygon2D" parent="Obstacles/BottomRghtCenterTriangle"]
 polygon = PackedVector2Array(0, 0, 50, -50, 100, 0)
