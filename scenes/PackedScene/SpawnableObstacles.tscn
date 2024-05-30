@@ -23,6 +23,11 @@ script = ExtResource("1_a0pr6")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CircleObstacle"]
 shape = SubResource("CircleShape2D_105yn")
 
+[node name="Area2D" type="Area2D" parent="CircleObstacle"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CircleObstacle/Area2D"]
+shape = SubResource("CircleShape2D_105yn")
+
 [node name="DiamondObstacle" type="StaticBody2D" parent="."]
 process_mode = 4
 visible = false
@@ -35,3 +40,13 @@ polygon = PackedVector2Array(0, -64, -64, 0, 0, 64, 64, 0)
 position = Vector2(-9.53674e-07, 1.78814e-07)
 rotation = 0.785398
 shape = SubResource("RectangleShape2D_um67t")
+
+[node name="Area2D" type="Area2D" parent="DiamondObstacle"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DiamondObstacle/Area2D"]
+position = Vector2(-9.53674e-07, 1.78814e-07)
+rotation = 0.785398
+shape = SubResource("RectangleShape2D_um67t")
+
+[connection signal="body_entered" from="CircleObstacle/Area2D" to="." method="OnBodyEntered"]
+[connection signal="body_entered" from="DiamondObstacle/Area2D" to="." method="OnBodyEntered"]

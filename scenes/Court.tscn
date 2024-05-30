@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdhsxfjf0hws2"]
+[gd_scene load_steps=5 format=3 uid="uid://cdhsxfjf0hws2"]
 
 [ext_resource type="Script" path="res://scripts/Court.cs" id="1_epw77"]
+[ext_resource type="PackedScene" uid="uid://dw80stm2km62o" path="res://scenes/PackedScene/SpawnableObstacles.tscn" id="2_8128l"]
 [ext_resource type="Script" path="res://scripts/CenterObstacles.cs" id="2_oca4f"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sg4tc"]
 
 [node name="Court" type="Node2D"]
 script = ExtResource("1_epw77")
+SpawnableObstaclesScene = ExtResource("2_8128l")
 
 [node name="TopLeftCornerWall" type="StaticBody2D" parent="." groups=["CornerWalls"]]
 disable_mode = 2
@@ -110,3 +112,9 @@ polygon = PackedVector2Array(0, 0, 50, -50, 100, 0)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CenterObstacles/BottomRghtCenterTriangle"]
 polygon = PackedVector2Array(0, 0, 50, -50, 100, 0)
+
+[node name="DummyTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="DummyTimer" to="." method="OnDummyTimerTimeout"]

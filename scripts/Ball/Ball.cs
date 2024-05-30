@@ -9,6 +9,11 @@ public partial class Ball : RigidBody2D
         LinearVelocity += new Vector2(GetRandomVelocity(), 0);
     }
 
+    public void OnBodyEntered(Node body)
+    {
+        GD.Print(body.GetType());
+    }
+
     private float GetRandomVelocity()
     {
         var random = new Random();
