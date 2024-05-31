@@ -18,28 +18,28 @@ script = ExtResource("1_rjfbw")
 [node name="Ball" parent="." instance=ExtResource("3_7a05y")]
 position = Vector2(960, 540)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("WorldBoundaryShape2D_0bb16")
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(831, 6)
-rotation = -1.57551
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-shape = SubResource("WorldBoundaryShape2D_0bb16")
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+[node name="TBD" type="StaticBody2D" parent="."]
 position = Vector2(1065, 587)
 rotation = 1.5708
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TBD"]
 shape = SubResource("WorldBoundaryShape2D_0bb16")
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+[node name="TBD1" type="StaticBody2D" parent="."]
 position = Vector2(551, 1060)
 rotation = 3.14159
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TBD1"]
+shape = SubResource("WorldBoundaryShape2D_0bb16")
+
+[node name="TBD2" type="StaticBody2D" parent="."]
+position = Vector2(831, 6)
+rotation = -1.57551
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TBD2"]
+shape = SubResource("WorldBoundaryShape2D_0bb16")
+
+[node name="TBD3" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TBD3"]
 shape = SubResource("WorldBoundaryShape2D_0bb16")

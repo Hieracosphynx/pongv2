@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdhsxfjf0hws2"]
+[gd_scene load_steps=6 format=3 uid="uid://cdhsxfjf0hws2"]
 
 [ext_resource type="Script" path="res://scripts/Court.cs" id="1_epw77"]
 [ext_resource type="PackedScene" uid="uid://dw80stm2km62o" path="res://scenes/PackedScene/SpawnableObstacles.tscn" id="2_8128l"]
 [ext_resource type="Script" path="res://scripts/CenterObstacles.cs" id="2_oca4f"]
+[ext_resource type="PackedScene" uid="uid://dsjmanw6owmpo" path="res://scenes/SpawnableArea.tscn" id="4_beflb"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sg4tc"]
 
@@ -116,5 +117,7 @@ polygon = PackedVector2Array(0, 0, 50, -50, 100, 0)
 [node name="DummyTimer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
+
+[node name="SpawnableArea" parent="." instance=ExtResource("4_beflb")]
 
 [connection signal="timeout" from="DummyTimer" to="." method="OnDummyTimerTimeout"]
