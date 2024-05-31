@@ -17,7 +17,7 @@ public partial class Court : Node2D
         SpawnableAreaShape = SpawnableArea.GetNode<CollisionShape2D>("CollisionShape2D");
     }
 
-    public void OnDummyTimerTimeout()
+    public void OnSpawnTimerTimeout()
     {
         Vector2 spawnableAreaPosition = SpawnableAreaShape.Position;
         Vector2 spawnableAreaSize = SpawnableAreaShape.Shape.GetRect().Size;
@@ -28,7 +28,7 @@ public partial class Court : Node2D
         SpawnableArea.AddChild(spawnableObstacle);
     }
 
-    private Vector2 GetRandomPosition(Vector2 relativePosition, Vector2 size)
+    private static Vector2 GetRandomPosition(Vector2 relativePosition, Vector2 size)
     {
         float xRandomInteger = GetRandomInteger(size.X, relativePosition.X);
         float yRandomInteger = GetRandomInteger(size.Y, relativePosition.Y);
