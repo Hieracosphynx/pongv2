@@ -5,4 +5,7 @@
     <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'ios' ">net8.0</TargetFramework>
     <EnableDynamicLoading>true</EnableDynamicLoading>
   </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="NakamaClient" Version="3.12.1" />
+  </ItemGroup>
 </Project>
