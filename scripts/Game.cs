@@ -9,7 +9,14 @@ public partial class Game : Node
 
     public override void _Ready()
     {
+        CreateConnection();
+    }
+
+    private async void CreateConnection()
+    {
         GameServer = new Server(this);
-        GameServer.NewClient();
+        GameServer.CreateClient();
+        await GameServer.CreateSession();
+        await GameServer.ConnectSocket();
     }
 }

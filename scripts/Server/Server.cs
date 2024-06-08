@@ -1,16 +1,20 @@
+using System.Threading.Tasks;
 using Godot;
 using Nakama;
 
 public class Server
 {
-    private Node GameClient;
+    private Client ClientInstance { get; set; }
+    private ISocket GameSocket { get; set; }
+    private ISession GameSession { get; set; }
+    private readonly Node GameClient;
 
     public Server(Node GameClient)
     {
         this.GameClient = GameClient;
     }
 
-    public async void NewClient()
+    public void CreateClient()
     {
         var httpAdapter = new GodotHttpAdapter();
 
@@ -22,13 +26,17 @@ public class Server
         const string serverKey = "defaultkey";
 
         // Pass in the 'http_adapter' as the last argument.
-        var client = new Client(scheme, host, port, serverKey, httpAdapter);
+        ClientInstance = new Client(scheme, host, port, serverKey, httpAdapter)
+        {
+            Logger = new GodotLogger("Nakama", GodotLogger.LogLevel.DEBUG),
+            Timeout = 10
+        };
+    }
 
-        client.Logger = new GodotLogger("Nakama", GodotLogger.LogLevel.DEBUG);
-
-        ISession session;
+    public async Task CreateSession()
+    {
         try {
-            session = await client.AuthenticateDeviceAsync(OS.GetUniqueId(), "TestUser", true); 
+            GameSession = await ClientInstance.AuthenticateDeviceAsync(OS.GetUniqueId(), "TestUser", true); 
         }
         catch(ApiResponseException e) {
             GD.PrintErr(e.ToString());
@@ -38,7 +46,17 @@ public class Server
         var websocketAdapter = new GodotWebSocketAdapter();
         GameClient.AddChild(websocketAdapter);
 
-        var socket = Socket.From(client, websocketAdapter);
+        GameSocket = Socket.From(ClientInstance, websocketAdapter);
     }
 
+    public async Task ConnectSocket()
+    {
+       try {
+        await GameSocket.ConnectAsync(GameSession);
+       }    
+       catch(ApiResponseException e) {
+        GD.PrintErr(e.ToString());
+        return;
+       }
+    }
 }
