@@ -1,9 +1,12 @@
+using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Godot;
 using Nakama;
 
 public class Server
 {
+
     private Client ClientInstance { get; set; }
     private ISocket GameSocket { get; set; }
     private ISession GameSession { get; set; }
@@ -33,16 +36,8 @@ public class Server
         };
     }
 
-    public async Task CreateSession()
+    public void CreateSession()
     {
-        try {
-            GameSession = await ClientInstance.AuthenticateDeviceAsync(OS.GetUniqueId(), "TestUser", true); 
-        }
-        catch(ApiResponseException e) {
-            GD.PrintErr(e.ToString());
-            return;
-        }
-
         var websocketAdapter = new GodotWebSocketAdapter();
         GameClient.AddChild(websocketAdapter);
 
@@ -53,7 +48,28 @@ public class Server
     {
        try {
         await GameSocket.ConnectAsync(GameSession);
+        GD.Print(GameSocket);
        }    
+       catch(ApiResponseException e) {
+        GD.PrintErr(e.ToString());
+        return;
+       }
+    }
+
+    public async Task AuthenticateDevice()
+    { 
+        try {
+            var device = new Dictionary<string, string>(){
+                {"Id", Guid.NewGuid().ToString()},
+                {"OS", OS.GetName()},
+                {"Model",OS.GetModelName()},
+                {"UserId", Guid.NewGuid().ToString()}
+            };
+
+            GameSession = await ClientInstance.AuthenticateDeviceAsync(device["Id"], null, true, device);
+            await ClientInstance.LinkCustomAsync(GameSession, device["Id"]);
+            GD.Print(GameSession);
+	    }
        catch(ApiResponseException e) {
         GD.PrintErr(e.ToString());
         return;

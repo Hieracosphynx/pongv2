@@ -16,7 +16,8 @@ public partial class Game : Node
     {
         GameServer = new Server(this);
         GameServer.CreateClient();
-        await GameServer.CreateSession();
+        GameServer.CreateSession();
+        await GameServer.AuthenticateDevice();
         await GameServer.ConnectSocket();
     }
 }
