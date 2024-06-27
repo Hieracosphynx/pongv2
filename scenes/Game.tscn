@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://d4bqa8vmbuodq"]
+[gd_scene load_steps=7 format=3 uid="uid://d4bqa8vmbuodq"]
 
 [ext_resource type="PackedScene" uid="uid://upjsjju4a8v3" path="res://scenes/Player.tscn" id="1_70hb5"]
 [ext_resource type="Script" path="res://scripts/Game.cs" id="1_rjfbw"]
 [ext_resource type="PackedScene" uid="uid://cdhsxfjf0hws2" path="res://scenes/Court.tscn" id="2_hasa3"]
 [ext_resource type="PackedScene" uid="uid://bre25nt3nextk" path="res://scenes/Ball.tscn" id="3_7a05y"]
+[ext_resource type="PackedScene" uid="uid://r75r1fiiqiw4" path="res://scenes/UI/hud.tscn" id="5_tbsqs"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0bb16"]
 distance = -1056.0
@@ -43,3 +44,9 @@ shape = SubResource("WorldBoundaryShape2D_0bb16")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TBD3"]
 shape = SubResource("WorldBoundaryShape2D_0bb16")
+
+[node name="HUD" parent="." instance=ExtResource("5_tbsqs")]
+visible = false
+
+[connection signal="Quit" from="HUD" to="." method="OnQuitButtonPressed"]
+[connection signal="Resume" from="HUD" to="." method="OnResumeButtonPressed"]
