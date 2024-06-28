@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://r75r1fiiqiw4"]
 
-[ext_resource type="Script" path="res://scripts/UI/hud.cs" id="1_abn55"]
+[ext_resource type="Script" path="res://scripts/UI/HUD.cs" id="1_2ooeo"]
 
 [node name="HUD" type="CanvasLayer"]
 process_mode = 2
-script = ExtResource("1_abn55")
+script = ExtResource("1_2ooeo")
 
 [node name="Panel" type="Panel" parent="."]
 offset_right = 1923.0
@@ -22,6 +22,7 @@ text = "RESUME"
 metadata/_edit_use_anchors_ = true
 
 [node name="Quit" type="Button" parent="Panel"]
+layout_mode = 0
 offset_left = 737.0
 offset_top = 532.0
 offset_right = 1229.0
@@ -30,6 +31,19 @@ theme_override_font_sizes/font_size = 50
 text = "QUIT
 "
 metadata/_edit_use_anchors_ = true
+
+[node name="CounterLabel" type="Label" parent="Panel"]
+visible = false
+layout_mode = 0
+offset_left = 840.0
+offset_top = 356.0
+offset_right = 1123.0
+offset_bottom = 629.0
+theme_override_font_sizes/font_size = 200
+text = "
+"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Panel/Resume" to="." method="ResumeButtonPressed"]
 [connection signal="pressed" from="Panel/Quit" to="." method="QuitButtonPressed"]

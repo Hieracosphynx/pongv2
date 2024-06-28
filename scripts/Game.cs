@@ -3,16 +3,25 @@ using System;
 
 public partial class Game : Node
 {
-    private CanvasLayer HUD;
+    private HUD HUDNode;
+    private Timer ResumeTimer;
     public override void _Ready()
     {
-        HUD = GetNode<CanvasLayer>("HUD");
+        HUDNode = GetNode<HUD>("HUD");
+        ResumeTimer = GetNode<Timer>("ResumeTimer");
     }
 
     public void OnResumeButtonPressed()
     {
+        ResumeTimer.Start();
+        HUDNode.PlayCountdown();
+        // TODO: Counter Animation 
+    }
+
+    public void OnResumeTimerTimeout()
+    {
         GetTree().Paused = false;
-        HUD.Visible = false;
+        HUDNode.Visible = false;
     }
 
     public void OnQuitButtonPressed()
@@ -25,7 +34,7 @@ public partial class Game : Node
         if(Input.IsActionJustPressed("pause") || Input.IsActionPressed("pause"))
         {
             GetTree().Paused = true;
-            HUD.Visible = true;
+            HUDNode.Visible = true;
         }
     }
 }
