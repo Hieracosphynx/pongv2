@@ -13,8 +13,9 @@ public partial class Game : Node
 
     public void OnResumeButtonPressed()
     {
-        ResumeTimer.Start();
+        HUDNode.HideButtons();
         HUDNode.PlayCountdown();
+        ResumeTimer.Start();
         // TODO: Counter Animation 
     }
 
@@ -35,6 +36,7 @@ public partial class Game : Node
         {
             GetTree().Paused = true;
             HUDNode.Visible = true;
+            HUDNode.ShowButtons();
         }
     }
 }
