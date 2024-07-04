@@ -20,13 +20,18 @@ public partial class HUD : CanvasLayer
         QuitButton = GetNode<Button>("Panel/Quit");
     }
 
-    public async void PlayCountdown()
+    public void PlayCountdown()
     {
         Tween tween = GetTree().CreateTween();
         tween.SetPauseMode(Tween.TweenPauseMode.Process);
         CounterLabel.Visible = true;
         //tween.TweenProperty(CounterLabel, "scale", Vector2.Zero, 1.0f);
         tween.TweenMethod(Callable.From<int>(UpdateCounterValue), 4.0f, 1.0f, 3.0f);
+    }
+
+    public void HideCounterLabel()
+    {
+        CounterLabel.Visible = false;
     }
 
     public void HideButtons()

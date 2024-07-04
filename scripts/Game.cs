@@ -22,6 +22,8 @@ public partial class Game : Node
     public void OnResumeTimerTimeout()
     {
         GetTree().Paused = false;
+
+        HUDNode.HideCounterLabel();
         HUDNode.Visible = false;
     }
 
